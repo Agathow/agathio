@@ -374,41 +374,70 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Merapikan Navigasi agar tidak menumpuk */
+    /* 1. Perbaikan Navigasi: Mengurangi tinggi dan mengatur ulang layout */
     nav { 
-        width: 95%; 
-        padding: 10px 15px; 
-        flex-direction: column; 
-        gap: 10px; 
-        border-radius: 25px; 
-        top: 10px;
+        width: 92%; 
+        padding: 12px 20px; 
+        flex-direction: row; /* Tetap row agar logo dan menu sejajar jika muat */
+        justify-content: space-between;
+        border-radius: 50px; 
+        top: 15px;
     }
     
-    #logo-text { font-size: 18px; }
+    #logo-text { font-size: 16px; }
     
     .menu-capsule { 
-        padding: 8px 15px; 
-        gap: 15px; 
-        width: 100%; 
-        justify-content: center; 
+        padding: 6px 12px; 
+        gap: 12px; 
+        border-radius: 30px;
     }
 
-    .menu-capsule a { font-size: 12px; }
+    .menu-capsule a { font-size: 11px; }
 
-    /* Merapikan Header & Teks */
-    #hero-title { font-size: 32px; }
-    #hero-desc { font-size: 15px; padding: 0 10px; }
+    /* 2. Perbaikan Hero: Menambah ruang agar tidak tertiban */
+    header {
+        padding-top: 100px; /* Memberi ruang untuk nav */
+        min-height: auto;
+        padding-bottom: 50px;
+    }
 
-    /* Merapikan Card What I Offer */
-    .offer-container { padding: 40px 20px; border-radius: 30px; }
-    #what-i-offer { margin-top: 20px; }
+    #hero-title { font-size: 30px; margin-top: 20px; }
+    #hero-desc { font-size: 14px; margin-bottom: 30px; }
+
+    /* 3. Menghilangkan efek menimpa (Overlap) pada Mobile */
+    #what-i-offer { 
+        margin-top: 0; /* Menghapus margin negatif agar tidak meniban Stack */
+        padding: 40px 5%; 
+    }
+
+    .offer-container { 
+        padding: 40px 25px; 
+        border-radius: 35px; 
+    }
+
+    .stack-label { font-size: 10px; }
     
-    .info-card { padding: 30px; min-height: auto; gap: 20px; }
-    
-    /* Footer */
+    #tools-marquee {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    /* 4. Penyesuaian Card */
+    .info-card { 
+        padding: 30px; 
+        min-height: auto; 
+        gap: 15px; 
+    }
+
+    .about-card-img, .cert-marquee-container {
+        height: 160px; /* Memperkecil gambar di mobile agar hemat ruang */
+    }
+
+    /* 5. Footer tetap rapi */
     .footer-bottom {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         text-align: center;
     }
 }
+
