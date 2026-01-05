@@ -72,7 +72,7 @@ nav {
 .menu-capsule a.active, .menu-capsule a:hover { opacity: 1; }
 
 .portfolio-container {
-    padding-top: 150px; 
+    padding-top: 110px; 
     max-width: 1250px;
     margin: 0 auto;
     padding-inline: 5%;
@@ -81,7 +81,7 @@ nav {
 
 .portfolio-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* MERAPAT: Jarak ke filter lebih pas */
 }
 
 .portfolio-header span.tag {
@@ -338,27 +338,56 @@ footer {
     font-weight: 400;
 }
 
-/* Responsif untuk Mobile */
+/* ==========================================================================
+   PERBAIKAN KHUSUS MOBILE (768px ke bawah)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .footer-bottom {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+    /* 1. Rapatkan jarak Container ke Navigasi Mobile */
+    .portfolio-container {
+        padding-top: 115px; /* DIRAPATKAN: Ruang pas agar judul terlihat tepat di bawah nav kolom */
     }
 
+    /* 2. Rapatkan jarak antara "MY WORKS" dengan Judul Utama */
+    .portfolio-header {
+        margin-bottom: 20px; /* DIRAPATKAN: Memperpendek jarak ke elemen di bawahnya */
+    }
+
+    .portfolio-header h1 { 
+        font-size: 26px; /* Ukuran lebih proporsional untuk HP */
+        margin-top: 5px; /* Rapatkan ke teks "MY WORKS" */
+        line-height: 1.2;
+    }
+
+    /* 3. Rapatkan jarak Judul Utama ke Project Count (Badge) */
+    .portfolio-header h1 + .counter-badge,
+    .counter-badge {
+        margin-top: 5px; /* DIRAPATKAN: Badge jumlah proyek naik lebih dekat ke judul */
+    }
+
+    /* 4. Rapatkan jarak dari Badge ke Filter Wrapper */
+    .filter-wrapper { 
+        margin-top: 20px; /* Jarak antar badge jumlah proyek ke tombol filter */
+        margin-bottom: 20px; /* Jarak tombol filter ke grid proyek */
+        gap: 6px; 
+    }
+
+    /* 5. Pengaturan Navigasi tetap konsisten */
     nav { 
         width: 90%; 
-        padding: 15px; 
+        padding: 12px 15px; 
         flex-direction: column; 
-        gap: 12px; 
-        border-radius: 25px; 
+        gap: 10px; 
+        border-radius: 20px; 
         top: 10px;
     }
     
-    .menu-capsule { width: 100%; justify-content: center; padding: 8px 15px; gap: 15px; }
-    .menu-capsule a { font-size: 11px; }
+    .menu-capsule { width: 100%; justify-content: center; padding: 6px 12px; gap: 12px; }
+    .menu-capsule a { font-size: 10px; }
+    
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
 
-@media (max-width: 1000px) {
-    header { padding-top: 180px; }
+/* Tablet Adjustment */
+@media (max-width: 1000px) and (min-width: 769px) {
+    .portfolio-container { padding-top: 130px; }
 }
