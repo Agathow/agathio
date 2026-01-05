@@ -362,35 +362,50 @@ footer {
 }
 
 /* ==========================================================================
-   8. MEDIA QUERIES
+   8. MEDIA QUERIES (PERBAIKAN MOBILE)
    ========================================================================== */
 @media (max-width: 1000px) {
-    header {
-        padding-top: 100px;
-    }
-    
-    #hero-content { 
-        flex-direction: column-reverse; 
-        text-align: center; 
-    }
-    
-    #hero-photo-container { 
-        width: 300px; 
-        flex: none; 
-        margin-bottom: 40px; 
-        justify-content: center;
-    }
-    
-    #hero-photo.show {
-        transform: translateX(0);
-    }
-    
-    #tools-marquee { 
-        margin: 0 auto; 
-    }
+    header { padding-top: 120px; min-height: auto; }
+    #hero-content { flex-direction: column-reverse; text-align: center; }
+    #hero-photo-container { width: 100%; max-width: 300px; flex: none; margin-bottom: 20px; justify-content: center; }
+    #hero-photo.show { transform: translateX(0); }
+    #tools-marquee { margin: 0 auto; }
+    #hero-inner { max-width: 100%; }
 }
 
 @media (max-width: 768px) {
+    /* Merapikan Navigasi agar tidak menumpuk */
+    nav { 
+        width: 95%; 
+        padding: 10px 15px; 
+        flex-direction: column; 
+        gap: 10px; 
+        border-radius: 25px; 
+        top: 10px;
+    }
+    
+    #logo-text { font-size: 18px; }
+    
+    .menu-capsule { 
+        padding: 8px 15px; 
+        gap: 15px; 
+        width: 100%; 
+        justify-content: center; 
+    }
+
+    .menu-capsule a { font-size: 12px; }
+
+    /* Merapikan Header & Teks */
+    #hero-title { font-size: 32px; }
+    #hero-desc { font-size: 15px; padding: 0 10px; }
+
+    /* Merapikan Card What I Offer */
+    .offer-container { padding: 40px 20px; border-radius: 30px; }
+    #what-i-offer { margin-top: 20px; }
+    
+    .info-card { padding: 30px; min-height: auto; gap: 20px; }
+    
+    /* Footer */
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
