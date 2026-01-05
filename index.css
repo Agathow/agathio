@@ -362,82 +362,85 @@ footer {
 }
 
 /* ==========================================================================
-   8. MEDIA QUERIES (PERBAIKAN MOBILE)
+   8. MEDIA QUERIES (FULL FIXED MOBILE)
    ========================================================================== */
 @media (max-width: 1000px) {
     header { padding-top: 120px; min-height: auto; }
     #hero-content { flex-direction: column-reverse; text-align: center; }
-    #hero-photo-container { width: 100%; max-width: 300px; flex: none; margin-bottom: 20px; justify-content: center; }
-    #hero-photo.show { transform: translateX(0); }
+    #hero-photo-container { width: 100%; max-width: 280px; flex: none; margin-bottom: 20px; justify-content: center; }
+    #hero-photo.show { transform: translateX(0); opacity: 1; }
     #tools-marquee { margin: 0 auto; }
     #hero-inner { max-width: 100%; }
 }
 
 @media (max-width: 768px) {
-    /* 1. Perbaikan Navigasi: Mengurangi tinggi dan mengatur ulang layout */
+    /* 1. PERBAIKAN NAV: Logo dan Menu bertumpuk vertikal agar tidak tumpah */
     nav { 
-        width: 92%; 
-        padding: 12px 20px; 
-        flex-direction: row; /* Tetap row agar logo dan menu sejajar jika muat */
-        justify-content: space-between;
-        border-radius: 50px; 
-        top: 15px;
+        width: 90%; 
+        padding: 15px; 
+        flex-direction: column; /* Mengubah ke kolom agar muat di layar sempit */
+        gap: 12px; 
+        border-radius: 25px; 
+        top: 10px;
     }
     
-    #logo-text { font-size: 16px; }
+    #logo-text { font-size: 18px; }
     
     .menu-capsule { 
-        padding: 6px 12px; 
-        gap: 12px; 
-        border-radius: 30px;
+        padding: 8px 15px; 
+        gap: 15px; 
+        width: 100%; 
+        justify-content: center; /* Menu di tengah di bawah logo */
     }
 
     .menu-capsule a { font-size: 11px; }
 
-    /* 2. Perbaikan Hero: Menambah ruang agar tidak tertiban */
+    /* 2. PERBAIKAN HERO: Mengurangi teks agar tidak menumpuk */
     header {
-        padding-top: 100px; /* Memberi ruang untuk nav */
-        min-height: auto;
-        padding-bottom: 50px;
+        padding-top: 130px; /* Ruang lebih untuk nav yang jadi lebih tinggi */
+        padding-bottom: 40px;
     }
 
-    #hero-title { font-size: 30px; margin-top: 20px; }
-    #hero-desc { font-size: 14px; margin-bottom: 30px; }
+    #hero-title { font-size: 28px; line-height: 1.2; }
+    #hero-desc { font-size: 14px; margin-bottom: 25px; }
 
-    /* 3. Menghilangkan efek menimpa (Overlap) pada Mobile */
+    /* 3. FIX OVERLAP: Menghapus margin negatif penyebab tumpukan */
     #what-i-offer { 
-        margin-top: 0; /* Menghapus margin negatif agar tidak meniban Stack */
-        padding: 40px 5%; 
+        margin-top: 30px !important; /* Memberi jarak positif, bukan negatif */
+        padding: 0 5% 60px; 
     }
 
     .offer-container { 
-        padding: 40px 25px; 
-        border-radius: 35px; 
+        padding: 40px 20px; 
+        border-radius: 30px; 
     }
 
-    .stack-label { font-size: 10px; }
+    .offer-header { margin-bottom: 40px; }
+    .offer-header h2 { font-size: 24px; }
     
     #tools-marquee {
         max-width: 100%;
         padding: 10px;
     }
 
-    /* 4. Penyesuaian Card */
+    /* 4. PENYESUAIAN CARD: Grid satu kolom otomatis */
+    #about-cards-section {
+        grid-template-columns: 1fr; /* Memastikan kartu berjejer ke bawah */
+        gap: 20px;
+    }
+
     .info-card { 
-        padding: 30px; 
+        padding: 25px; 
         min-height: auto; 
-        gap: 15px; 
     }
 
     .about-card-img, .cert-marquee-container {
-        height: 160px; /* Memperkecil gambar di mobile agar hemat ruang */
+        height: 150px; 
     }
 
-    /* 5. Footer tetap rapi */
+    /* 5. FOOTER */
     .footer-bottom {
         flex-direction: column;
-        gap: 12px;
-        text-align: center;
+        gap: 10px;
     }
 }
-
