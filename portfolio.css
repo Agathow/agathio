@@ -345,6 +345,18 @@ footer {
         gap: 10px;
         text-align: center;
     }
+
+    nav { 
+        width: 90%; 
+        padding: 15px; 
+        flex-direction: column; 
+        gap: 12px; 
+        border-radius: 25px; 
+        top: 10px;
+    }
+    
+    .menu-capsule { width: 100%; justify-content: center; padding: 8px 15px; gap: 15px; }
+    .menu-capsule a { font-size: 11px; }
 }
 
 @media (max-width: 1000px) {
