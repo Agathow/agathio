@@ -362,7 +362,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. MEDIA QUERIES (FULL FIXED MOBILE)
+   7. MEDIA QUERIES (HANYA PERBAIKAN MOBILE)
    ========================================================================== */
 @media (max-width: 1000px) {
     header { padding-top: 120px; min-height: auto; }
@@ -370,15 +370,14 @@ footer {
     #hero-photo-container { width: 100%; max-width: 280px; flex: none; margin-bottom: 20px; justify-content: center; }
     #hero-photo.show { transform: translateX(0); opacity: 1; }
     #tools-marquee { margin: 0 auto; }
-    #hero-inner { max-width: 100%; }
 }
 
 @media (max-width: 768px) {
-    /* 1. PERBAIKAN NAV: Logo dan Menu bertumpuk vertikal agar tidak tumpah */
+    /* 1. Perbaikan Nav: Menghindari teks tumpah dengan format kolom */
     nav { 
         width: 90%; 
         padding: 15px; 
-        flex-direction: column; /* Mengubah ke kolom agar muat di layar sempit */
+        flex-direction: column; 
         gap: 12px; 
         border-radius: 25px; 
         top: 10px;
@@ -387,60 +386,49 @@ footer {
     #logo-text { font-size: 18px; }
     
     .menu-capsule { 
+        width: 100%; 
+        justify-content: center; 
         padding: 8px 15px; 
         gap: 15px; 
-        width: 100%; 
-        justify-content: center; /* Menu di tengah di bawah logo */
     }
 
     .menu-capsule a { font-size: 11px; }
 
-    /* 2. PERBAIKAN HERO: Mengurangi teks agar tidak menumpuk */
-    header {
-        padding-top: 130px; /* Ruang lebih untuk nav yang jadi lebih tinggi */
-        padding-bottom: 40px;
-    }
+    /* 2. Perbaikan Hero: Memberi ruang agar tidak menimpa Stack */
+    header { padding-top: 150px; padding-bottom: 40px; }
+    #hero-title { font-size: 32px; line-height: 1.2; }
+    #hero-desc { font-size: 15px; margin-bottom: 25px; }
 
-    #hero-title { font-size: 28px; line-height: 1.2; }
-    #hero-desc { font-size: 14px; margin-bottom: 25px; }
-
-    /* 3. FIX OVERLAP: Menghapus margin negatif penyebab tumpukan */
+    /* 3. Perbaikan Overlap: Menghilangkan margin negatif di mobile */
     #what-i-offer { 
-        margin-top: 30px !important; /* Memberi jarak positif, bukan negatif */
+        margin-top: 40px !important; 
         padding: 0 5% 60px; 
     }
 
-    .offer-container { 
-        padding: 40px 20px; 
-        border-radius: 30px; 
-    }
-
+    .offer-container { padding: 40px 20px; border-radius: 35px; }
     .offer-header { margin-bottom: 40px; }
     .offer-header h2 { font-size: 24px; }
     
-    #tools-marquee {
-        max-width: 100%;
-        padding: 10px;
-    }
+    #tools-marquee { max-width: 100%; padding: 10px; }
 
-    /* 4. PENYESUAIAN CARD: Grid satu kolom otomatis */
-    #about-cards-section {
-        grid-template-columns: 1fr; /* Memastikan kartu berjejer ke bawah */
-        gap: 20px;
-    }
-
+    /* 4. Perbaikan Card: Rasio gambar 16:9 agar tidak terpotong */
+    #about-cards-section { grid-template-columns: 1fr; gap: 25px; }
+    
     .info-card { 
-        padding: 25px; 
+        padding: 30px; 
         min-height: auto; 
+        background: rgba(13, 13, 13, 0.95); /* Lebih solid agar grid tidak menembus */
     }
 
-    .about-card-img, .cert-marquee-container {
-        height: 150px; 
+    .about-card-img, 
+    .cert-marquee-container { 
+        aspect-ratio: 16 / 9; 
+        height: auto;
     }
 
-    /* 5. FOOTER */
-    .footer-bottom {
-        flex-direction: column;
-        gap: 10px;
-    }
+    .card-header { font-size: 14px; }
+    .card-desc { font-size: 13px; }
+
+    /* 5. Footer */
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
