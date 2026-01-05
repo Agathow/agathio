@@ -374,15 +374,23 @@ footer {
     /* 5. Pengaturan Navigasi tetap konsisten */
     nav { 
         width: 90%; 
-        padding: 12px 15px; 
+        padding: 12px 15px; /* Disamakan agar tinggi nav identik */
         flex-direction: column; 
         gap: 10px; 
         border-radius: 20px; 
-        top: 10px;
+        top: 10px; /* Jarak dari atas layar disamakan */
     }
-    
-    .menu-capsule { width: 100%; justify-content: center; padding: 6px 12px; gap: 12px; }
-    .menu-capsule a { font-size: 10px; }
+
+    .menu-capsule { 
+        width: 100%; 
+        justify-content: center; 
+        padding: 6px 12px; 
+        gap: 12px; 
+    }
+
+    .menu-capsule a { 
+        font-size: 10px; 
+    }
     
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
