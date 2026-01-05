@@ -373,7 +373,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* 1. Perbaikan Nav: Menghindari teks tumpah dengan format kolom */
+    /* 1. Navigasi tetap aman */
     nav { 
         width: 90%; 
         padding: 15px; 
@@ -383,52 +383,63 @@ footer {
         top: 10px;
     }
     
-    #logo-text { font-size: 18px; }
-    
-    .menu-capsule { 
-        width: 100%; 
-        justify-content: center; 
-        padding: 8px 15px; 
-        gap: 15px; 
-    }
-
+    .menu-capsule { width: 100%; justify-content: center; padding: 8px 15px; gap: 15px; }
     .menu-capsule a { font-size: 11px; }
 
-    /* 2. Perbaikan Hero: Memberi ruang agar tidak menimpa Stack */
+    /* 2. Hero Section */
     header { padding-top: 150px; padding-bottom: 40px; }
     #hero-title { font-size: 32px; line-height: 1.2; }
-    #hero-desc { font-size: 15px; margin-bottom: 25px; }
-
-    /* 3. Perbaikan Overlap: Menghilangkan margin negatif di mobile */
+    
+    /* 3. FIX: Kontainer What I Offer disesuaikan agar menampung konten */
     #what-i-offer { 
         margin-top: 40px !important; 
-        padding: 0 5% 60px; 
+        padding: 0 5% 60px;
+        height: auto; /* Biarkan tinggi mengikuti isi */
     }
 
-    .offer-container { padding: 40px 20px; border-radius: 35px; }
-    .offer-header { margin-bottom: 40px; }
-    .offer-header h2 { font-size: 24px; }
-    
-    #tools-marquee { max-width: 100%; padding: 10px; }
+    .offer-container { 
+        padding: 40px 20px; 
+        border-radius: 35px; 
+        height: auto; /* Memastikan kontainer hitam membungkus semua kartu */
+        display: block; /* Menghindari bug overflow pada flex/grid tertentu */
+    }
 
-    /* 4. Perbaikan Card: Rasio gambar 16:9 agar tidak terpotong */
-    #about-cards-section { grid-template-columns: 1fr; gap: 25px; }
+    .offer-header { margin-bottom: 30px; }
+    
+    /* 4. FIX: Layout Kartu yang Meluap */
+    #about-cards-section { 
+        display: flex; /* Gunakan flex column untuk kontrol lebih baik di mobile */
+        flex-direction: column;
+        gap: 20px; 
+        width: 100%;
+    }
     
     .info-card { 
-        padding: 30px; 
-        min-height: auto; 
-        background: rgba(13, 13, 13, 0.95); /* Lebih solid agar grid tidak menembus */
+        padding: 25px; 
+        min-height: auto; /* Menghapus batasan tinggi minimum agar pas di HP */
+        height: auto;
+        background: rgba(13, 13, 13, 0.95);
+        overflow: hidden; /* Mencegah elemen dalam keluar jalur */
     }
 
+    /* 5. Gambar & Sertifikat Proporsional */
     .about-card-img, 
     .cert-marquee-container { 
         aspect-ratio: 16 / 9; 
         height: auto;
+        width: 100%;
+        margin: 15px 0;
     }
 
-    .card-header { font-size: 14px; }
-    .card-desc { font-size: 13px; }
+    .cert-row img { 
+        height: 100px; /* Mengecilkan sertifikat di mobile agar tidak memakan tempat */
+    }
 
-    /* 5. Footer */
+    .card-header { font-size: 15px; margin-bottom: 10px; }
+    .card-desc { font-size: 14px; margin-bottom: 15px; }
+    .card-link { margin-top: 10px; display: block; }
+
+    /* 6. Footer */
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
+
