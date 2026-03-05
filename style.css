@@ -1,0 +1,752 @@
+/* style.css - ULTIMATE FINAL VERSION */
+:root {
+    --primary: #1a1b16; /* Gelap Premium */
+    --secondary: #fb6f92; /* Pink Romantis */
+    --text: #f8f9fa;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --glow: rgba(251, 111, 146, 0.3);
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    margin: 0; 
+    padding: 0;
+    background-color: var(--primary);
+    background-image: radial-gradient(circle at center, #2c2d24 0%, #1a1b16 100%);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Khusus Halaman Countdown index.html */
+.countdown-card {
+    max-width: 450px;
+    padding: 3rem;
+    border: 1px solid var(--border);
+}
+
+.age-count {
+    margin-bottom: 15px;
+}
+
+.life-timer {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.btn-wa-gold {
+    transition: all 0.5s ease;
+    /* gaya awal sesuai yang sudah kamu buat */
+}
+
+.hint-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hint-dot {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hint-dot:hover {
+    background: var(--secondary); /* Warna emas/pink favoritmu */
+    transform: scale(1.1);
+    border-color: transparent;
+}
+
+/* Animasi tambahan kalau sudah terbuka */
+.btn-glow-animation {
+    animation: buttonGlow 2s infinite;
+}
+
+@keyframes buttonGlow {
+    0% { box-shadow: 0 0 5px var(--secondary); }
+    50% { box-shadow: 0 0 25px var(--secondary); }
+    100% { box-shadow: 0 0 5px var(--secondary); }
+}
+
+/* --- Khusus Index Countdown --- */
+
+/* --- Perbaikan Countdown Index agar Sebaris --- */
+
+.minimal-timer {
+    font-family:Arial, Helvetica, sans-serif;
+    font-variant-numeric: tabular-nums; /* Angka lebar tetap agar tidak kedip */
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary);
+    text-shadow: 0 0 15px var(--glow);
+    margin: 30px 0;
+    display: block;
+    white-space: nowrap;
+}
+
+/* Responsif untuk HP agar tidak pecah */
+@media (max-width: 400px) {
+    .minimal-timer {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Memastikan kartu tetap di tengah layar */
+.letter-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Gaya kartu solid sesuai keinginan sebelumnya */
+.countdown-card.solid-card {
+    background: #1e1f1a !important;
+    max-width: 400px; /* Sedikit dilebarkan agar lebih lega */
+    width: 100%;
+}
+
+/* Keadaan Tombol saat Terkunci */
+.btn-wa-gold.disabled {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid var(--border);
+    box-shadow: none !important;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+    .minimal-timer {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* --- Layouting --- */
+.center-body { 
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* --- Glass Card V2 --- */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    padding: 3.5rem;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    z-index: 10;
+    animation: entrance 1s ease-out forwards;
+}
+
+@keyframes entrance {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.elegant-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    background: linear-gradient(to right, #ffffff, var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent;
+    -webkit-text-fill-color: transparent; 
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.subtitle { 
+    opacity: 0.6; 
+    font-size: 0.9rem; 
+    letter-spacing: 1px; 
+    margin-bottom: 25px; 
+}
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    height: 90px;
+    display: flex; 
+    align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(26, 27, 22, 0.9), transparent);
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    width: 100%; 
+    max-width: 1200px;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo { 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700; 
+    font-size: 1.3rem;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 120px 20px 60px;
+    box-sizing: border-box;
+}
+
+.birthday-card { 
+    max-width: 550px; 
+    width: 95%; 
+}
+
+/* --- Time Machine --- */
+.time-machine { 
+    margin-bottom: 35px; 
+    padding-bottom: 25px; 
+    border-bottom: 1px solid var(--border); 
+}
+
+#age-number { 
+    display: block; 
+    font-size: 4.5rem; 
+    font-weight: bold; 
+    color: var(--secondary); 
+    text-shadow: 0 0 30px var(--glow); 
+    line-height: 1; 
+}
+
+.life-timer { 
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300; 
+    margin-top: 15px; 
+    line-height: 1.8; 
+}
+
+.life-timer b { 
+    color: var(--secondary); 
+    font-size: 1.3rem; 
+}
+
+/* --- Gallery Memories --- */
+.gallery-container { 
+    padding: 100px 20px; 
+    text-align: center; 
+}
+
+.photo-grid { 
+    display: flex; 
+    gap: 30px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top: 50px; 
+}
+
+/* --- Flip Card --- */
+.flip-card { 
+    width: 280px; 
+    height: 380px; 
+    perspective: 1000px; 
+}
+
+.flip-card-inner { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+    transform-style: preserve-3d; 
+}
+
+.flip-card:hover .flip-card-inner { 
+    transform: rotateY(180deg); 
+}
+
+.flip-card-front, .flip-card-back { 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    backface-visibility: hidden; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    border: 1px solid var(--border); 
+}
+
+.flip-card-front img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: grayscale(30%); 
+    transition: 0.5s; 
+}
+
+.flip-card:hover .flip-card-front img { 
+    filter: grayscale(0%); 
+    transform: scale(1.1); 
+}
+
+.flip-card-back { 
+    background: #25261f; 
+    transform: rotateY(180deg); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    padding: 30px; 
+}
+
+.flip-card-back h3 { 
+    color: var(--secondary); 
+    font-family: 'Playfair Display', serif; 
+}
+
+.tag {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: var(--primary);
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    border-radius: 20px;
+}
+
+/* --- Particles --- */
+/* Container harus fixed dan memenuhi layar */
+.bg-animation { 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    pointer-events: none; /* Biar gak ngehalangin klik tombol */
+    z-index: 1; /* Di belakang card tapi di depan background */
+    overflow: hidden;
+}
+
+/* Gelembungnya */
+.heart-particle { 
+    position: absolute; 
+    background: var(--secondary); 
+    border-radius: 50%; 
+    opacity: 0.3; 
+    filter: blur(2px); 
+    bottom: -20px; /* Mulai dari bawah layar */
+    animation: floatUp linear infinite; 
+}
+
+@keyframes floatUp { 
+    0% { 
+        transform: translateY(0) scale(0); 
+        opacity: 0; 
+    } 
+    20% { opacity: 0.3; }
+    80% { opacity: 0.3; }
+    100% { 
+        transform: translateY(-110vh) scale(1.5); /* Naik ke atas layar */
+        opacity: 0; 
+    } 
+}
+
+/* --- Passcode Input & Button --- */
+input[type="password"] {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    letter-spacing: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="password"]:focus { 
+    border-color: var(--secondary); 
+    background: rgba(255, 255, 255, 0.08); 
+    box-shadow: 0 0 15px var(--glow);
+}
+
+button { 
+    background: var(--secondary); 
+    border: none; 
+    padding: 14px 40px; 
+    border-radius: 50px; 
+    color: white; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    margin-top: 20px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+button:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 15px 30px rgba(251, 111, 146, 0.4); 
+}
+
+#musicToggle { 
+    color: var(--text); 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    padding: 8px 16px; 
+    border: 1px solid var(--border); 
+    border-radius: 20px; 
+    background: rgba(255,255,255,0.05); 
+    transition: 0.3s;
+}
+
+#musicToggle:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+
+/* --- Scroll Indicator --- */
+.scroll-indicator { 
+    margin-top: 50px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.scroll-indicator p { 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    opacity: 0.4; 
+}
+
+.elegant-line { 
+    width: 1px; 
+    height: 60px; 
+    background: linear-gradient(to bottom, var(--secondary), transparent); 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.elegant-line::after { 
+    content: ''; 
+    position: absolute; 
+    top: -60px; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: #fff; 
+    animation: lineFlow 3s infinite; 
+}
+
+@keyframes lineFlow { 
+    0% { top: -60px; } 
+    100% { top: 60px; } 
+}
+
+/* --- Letter Teaser & Page --- */
+.letter-teaser {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, transparent, rgba(251, 111, 146, 0.05));
+}
+
+.letter-card { max-width: 450px; }
+
+.btn-open-letter {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: var(--secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(251, 111, 146, 0.3);
+}
+
+.btn-open-letter:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(251, 111, 146, 0.5);
+}
+
+.letter-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.full-letter {
+    max-width: 600px;
+    text-align: left;
+    padding: 50px;
+}
+
+.letter-content p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.closing {
+    margin-top: 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.closing span {
+    color: var(--secondary);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    opacity: 1;
+    transform: translateX(-5px);
+}
+
+/* --- Solid Premium Invitation --- */
+/* Pastikan body mengambil 100% tinggi layar dan mematikan scroll */
+.letter-page.no-scroll {
+    overflow: hidden !important;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ini yang bikin pas di tengah vertikal */
+}
+
+/* Kontainer utama harus mengisi seluruh layar */
+.letter-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Card Solid Premium */
+.solid-card {
+    background: #1e1f1a !important; /* Warna solid sesuai permintaan */
+    border: 2px solid #fb6f92;
+    padding: 2.5rem;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(251, 111, 146, 0.3);
+    /* Hapus margin auto jika ada agar tidak bentrok dengan flexbox */
+    margin: 0; 
+}
+
+.letter-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elegant-title-v2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.invite-tag-gold {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: #fb6f92;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.invitation-body-v2 span {
+    color: #fb6f92;
+    font-weight: 600;
+}
+
+.main-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.details-box-gold {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(251, 111, 146, 0.05);
+    border: 1px solid rgba(251, 111, 146, 0.2);
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #ffffff;
+}
+
+.question-v2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #fb6f92;
+    margin-bottom: 25px;
+}
+
+.btn-wa-gold {
+    display: inline-block;
+    padding: 14px 40px;
+    background: #fb6f92;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.4s;
+    box-shadow: 0 8px 20px rgba(251, 111, 146, 0.4);
+}
+
+.btn-wa-gold:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: #ff8fab;
+    box-shadow: 0 12px 30px rgba(251, 111, 146, 0.6);
+}
+
+.closing-v2 {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    line-height: 1.5;
+}
+
+.closing-v2 span {
+    color: #fb6f92;
+    font-weight: 600;
+}
+
+/* --- Modal Pop-up Styling --- */
+/* Styling untuk Custom Modal Pop-up - FIX CENTER */
+/* Styling untuk Overlay Modal */
+.modal {
+    display: none; /* Akan diubah jadi 'flex' oleh JS */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    
+    /* PENTING: Gunakan Flexbox untuk memusatkan isi */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Konten Pop-up */
+.modal-content {
+    background: var(--glass);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--secondary);
+    padding: 2.5rem;
+    border-radius: 30px;
+    text-align: center;
+    width: 85%;
+    max-width: 400px;
+    
+    /* Reset posisi agar tidak di pojok */
+    position: relative; 
+    margin: auto; 
+    
+    box-shadow: 0 0 30px var(--glow);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Animasi muncul biar lebih smooth */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; 
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--secondary);
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg) scale(1.2);
+}
+
+#modal-body h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+#modal-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #fff;
+}
