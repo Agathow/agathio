@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-sitesettings.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+<main class="admin-main">
+    <header class="admin-header">
+        <h1>Site <span class="text-blue">Settings</span></h1>
+        <p>Ubah teks utama yang muncul di halaman depan (Home).</p>
+    </header>
+
+        <section class="settings-container">
+            <form action="process/update-settings.php" method="POST">
+                <div class="settings-group">
+                    <label>Hero Title</label>
+                    <input type="text" name="hero_title" value="Blending design with human psychology.">
+                </div>
+
+                <div class="settings-group">
+                    <label>Hero Description</label>
+                    <textarea name="hero_desc" rows="4">Halo! Saya Agathio, seorang desainer produk digital...</textarea>
+                </div>
+
+                <div class="settings-group">
+                    <label>Contact Email</label>
+                    <input type="email" name="contact_email" value="hello@agathio.com">
+                </div>
+
+                <button type="submit" class="action-btn">Save Settings</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

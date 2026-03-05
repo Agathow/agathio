@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-addproject.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <div class="header-flex">
+                <div>
+                    <h1>Add New <span class="text-blue">Project</span></h1>
+                    <p>Isi detail di bawah untuk mempublikasikan karya terbaru Anda.</p>
+                </div>
+                <a href="admin-manageportfolio.html" class="back-link">← Back to List</a>
+            </div>
+        </header>
+
+        <section class="admin-form-container">
+            <form action="process/insert-project.php" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Project Title</label>
+                        <input type="text" name="title" placeholder="Masukkan nama proyek..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category">
+                            <option value="uiux">UI/UX Design</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="data-viz">Data Visualization</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Project Description</label>
+                        <textarea name="desc" rows="5" placeholder="Jelaskan tentang proyek ini..."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Upload Thumbnail (16:9 recommended)</label>
+                        <div class="file-drop-area">
+                            <input type="file" name="image" accept="image/*" required>
+                            <p>Click or drag image here</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="action-btn">Publish Project</button>
+                    <button type="reset" class="btn-secondary">Reset Form</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

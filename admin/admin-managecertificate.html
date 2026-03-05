@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-managecertificate.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header header-flex">
+            <h1>Manage <span class="text-blue">Certificates</span></h1>
+            <a href="admin-addcertificate.html" class="action-btn">+ Add Certificate</a>
+        </header>
+
+        <div class="cert-list-grid">
+            <div class="cert-admin-card">
+                <img src="../assets/portfolio/cert1.jpg" alt="">
+                <div class="cert-admin-info">
+                    <h3>Google UX Design</h3>
+                    <span>Issued Jan 2024</span>
+                    <div class="cert-admin-actions">
+                        <button class="btn-edit-small">Edit</button>
+                        <button class="btn-delete-small">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

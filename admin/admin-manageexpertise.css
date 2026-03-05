@@ -1,0 +1,188 @@
+/* ==========================================================================
+   1. ADMIN VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0a0a;
+    --accent-blue: #6A97AC;
+    --text-gray: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 280px;
+    --transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Background Grid */
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   2. SIDEBAR STYLING
+   ========================================================================== */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    padding: 40px 30px;
+    position: fixed;
+    height: 100vh;
+}
+
+.admin-logo {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.admin-logo span { color: var(--accent-blue); }
+.admin-logo small { font-size: 11px; opacity: 0.5; font-weight: 400; text-transform: uppercase; }
+
+.admin-nav { display: flex; flex-direction: column; gap: 8px; }
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-gray);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--glass);
+    color: var(--accent-blue);
+}
+
+/* ==========================================================================
+   3. MAIN CONTENT & TABLE STYLING
+   ========================================================================== */
+.admin-main {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 60px 5%;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.admin-header h1 { font-size: 32px; font-weight: 800; }
+.text-blue { color: var(--accent-blue); }
+
+.action-btn {
+    background: var(--accent-blue);
+    color: #000;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(106, 151, 172, 0.3);
+}
+
+/* Table Design */
+.table-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.expertise-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.expertise-table th {
+    padding: 20px;
+    color: var(--accent-blue);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.expertise-table td {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Badge & Buttons */
+.type-badge {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.type-badge.exp { background: rgba(106, 151, 172, 0.15); color: var(--accent-blue); }
+.type-badge.edu { background: rgba(255, 255, 255, 0.1); color: #fff; }
+
+.action-group { display: flex; gap: 8px; }
+
+.action-group button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.edit-icon:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(106, 151, 172, 0.1); }
+.delete-icon:hover { border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.1); }
+
+/* ==========================================================================
+   4. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .admin-sidebar { width: 100px; padding: 40px 15px; }
+    .admin-logo, .nav-item span, .admin-logo small { display: none; }
+    .admin-main { margin-left: 100px; width: calc(100% - 100px); }
+    .table-card { overflow-x: auto; }
+    .expertise-table { min-width: 700px; }
+}
+
+@media (max-width: 768px) {
+    .header-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .admin-main { padding: 40px 20px; }
+}

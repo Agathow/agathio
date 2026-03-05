@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Education | Admin Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-manageeducation.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header header-flex">
+            <div>
+                <h1>Manage <span class="text-blue">Education</span></h1>
+                <p>Kelola riwayat akademik dan kualifikasi pendidikan Anda.</p>
+            </div>
+            <a href="admin-addeducation.html" class="action-btn">+ Add Education</a>
+        </header>
+
+        <div class="table-card">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Degree / Major</th>
+                        <th>Period</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Binus University</strong></td>
+                        <td>Computer Science</td>
+                        <td>2021 - 2025</td>
+                        <td><span class="badge active">Ongoing</span></td>
+                        <td>
+                            <div class="action-group">
+                                <a href="edit-education.php?id=1" class="btn-edit">Edit</a>
+                                <a href="#" class="btn-delete">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

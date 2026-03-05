@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            Agath<span>io</span> <small>Admin</small>
+        </div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+        <div class="admin-footer">
+            <a href="../index.php" target="_blank" class="view-site">View Live Site ↗</a>
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1>Dashboard <span class="text-blue">Overview</span></h1>
+            <p>Selamat datang kembali, Agathio. Berikut ringkasan website Anda.</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Total Projects</span>
+                <h2 class="stat-value">12</h2>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Certificates</span>
+                <h2 class="stat-value">8</h2>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Site Views</span>
+                <h2 class="stat-value">1.2K</h2>
+            </div>
+        </div>
+
+        <section class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-buttons">
+                <a href="add-portfolio.php" class="action-btn">+ New Portfolio</a>
+                <a href="add-certificate.php" class="action-btn">+ New Certificate</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

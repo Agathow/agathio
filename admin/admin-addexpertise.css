@@ -1,0 +1,53 @@
+/* Styling hampir sama dengan Add Certificate, namun ada tambahan untuk toggle */
+:root {
+    --bg-dark: #0a0a0a;
+    --accent-blue: #6A97AC;
+    --text-gray: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 280px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg-dark); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; }
+
+.grid-bg { position: fixed; inset: 0; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.5; }
+
+/* Sidebar */
+.admin-sidebar { width: var(--sidebar-width); background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(20px); border-right: 1px solid var(--border); padding: 40px 30px; position: fixed; height: 100vh; }
+.admin-logo { font-size: 24px; font-weight: 800; margin-bottom: 50px; }
+.admin-logo span { color: var(--accent-blue); }
+.admin-nav { display: flex; flex-direction: column; gap: 8px; }
+.nav-item { text-decoration: none; color: var(--text-gray); padding: 14px 20px; border-radius: 12px; font-weight: 600; font-size: 15px; }
+.nav-item.active { background: var(--glass); color: var(--accent-blue); }
+
+/* Main Content */
+.admin-main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); padding: 60px 5%; }
+.header-flex { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+.admin-header h1 { font-size: 32px; font-weight: 800; }
+.text-blue { color: var(--accent-blue); }
+
+/* Form Card */
+.admin-form-container { background: var(--glass); border: 1px solid var(--border); padding: 40px; border-radius: 30px; backdrop-filter: blur(20px); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.full-width { grid-column: span 2; }
+.form-group label { display: block; margin-bottom: 10px; font-weight: 700; font-size: 12px; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1px; }
+
+.form-group input, .form-group select, .form-group textarea { 
+    width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid var(--border); border-radius: 12px; color: #fff; font-family: inherit; 
+}
+
+.toggle-container { display: flex; align-items: center; gap: 10px; }
+.toggle-container input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: var(--accent-blue); }
+
+.form-actions { display: flex; gap: 15px; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 30px; }
+.action-btn { background: var(--accent-blue); color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+.btn-secondary { background: transparent; color: #fff; border: 1px solid var(--border); padding: 15px 30px; border-radius: 50px; cursor: pointer; }
+
+@media (max-width: 1024px) {
+    .admin-sidebar { width: 80px; padding: 40px 10px; }
+    .admin-logo, .nav-item span { display: none; }
+    .admin-main { margin-left: 80px; width: calc(100% - 80px); }
+    .form-grid { grid-template-columns: 1fr; }
+}

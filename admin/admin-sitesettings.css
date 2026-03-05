@@ -1,0 +1,182 @@
+/* ==========================================================================
+   1. ADMIN VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0a0a;
+    --accent-blue: #6A97AC;
+    --text-gray: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 280px;
+    --transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Background Grid */
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   2. SIDEBAR STYLING
+   ========================================================================== */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    padding: 40px 30px;
+    position: fixed;
+    height: 100vh;
+}
+
+.admin-logo {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.admin-logo span { color: var(--accent-blue); }
+.admin-logo small { font-size: 11px; opacity: 0.5; font-weight: 400; text-transform: uppercase; }
+
+.admin-nav { display: flex; flex-direction: column; gap: 8px; }
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-gray);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--glass);
+    color: var(--accent-blue);
+}
+
+/* ==========================================================================
+   3. MAIN CONTENT & SETTINGS FORM
+   ========================================================================== */
+.admin-main {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 60px 5%;
+}
+
+.admin-header {
+    margin-bottom: 40px;
+}
+
+.admin-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.text-blue { color: var(--accent-blue); }
+
+.admin-header p {
+    color: var(--text-gray);
+    font-size: 16px;
+}
+
+/* Settings Container Card */
+.settings-container {
+    max-width: 800px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 30px;
+}
+
+.settings-group {
+    margin-bottom: 30px;
+}
+
+.settings-group label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--accent-blue);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.settings-group input, 
+.settings-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 18px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.settings-group input:focus, 
+.settings-group textarea:focus {
+    border-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.07);
+    outline: none;
+    box-shadow: 0 0 20px rgba(106, 151, 172, 0.1);
+}
+
+/* Save Button */
+.action-btn {
+    background: var(--accent-blue);
+    color: #0a0a0a;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(106, 151, 172, 0.3);
+    filter: brightness(1.1);
+}
+
+/* ==========================================================================
+   4. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .admin-sidebar { width: 100px; padding: 40px 15px; }
+    .admin-logo, .nav-item span, .admin-logo small { display: none; }
+    .admin-main { margin-left: 100px; width: calc(100% - 100px); }
+}
+
+@media (max-width: 768px) {
+    .admin-main { padding: 40px 20px; }
+    .settings-container { padding: 25px; border-radius: 20px; }
+    .admin-header h1 { font-size: 26px; }
+}

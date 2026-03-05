@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Journey | Admin Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-addexpertise.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header header-flex">
+            <div>
+                <h1>Add New <span class="text-blue">Journey</span></h1>
+                <p>Tambah pengalaman kerja atau riwayat pendidikan Anda.</p>
+            </div>
+            <a href="manage-expertise.php" class="back-link">← Back to List</a>
+        </header>
+
+        <section class="admin-form-container">
+            <form action="process/insert-expertise.php" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Category Type</label>
+                        <select name="type">
+                            <option value="experience">Professional Experience</option>
+                            <option value="education">Education</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Role / Major</label>
+                        <input type="text" name="title" placeholder="Contoh: UI Designer / Computer Science" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Institution / Company</label>
+                        <input type="text" name="institution" placeholder="Contoh: Binus University / Apple Inc" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Period (Year)</label>
+                        <input type="text" name="period" placeholder="Contoh: 2024 - Now">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Job/Study Description</label>
+                        <textarea name="desc" rows="4" placeholder="Jelaskan apa yang Anda kerjakan atau pelajari..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <div class="toggle-container">
+                            <input type="checkbox" name="is_current" id="is_current">
+                            <label for="is_current" style="text-transform: none; color: #fff;">Masih Berlangsung (Active Dot)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="action-btn">Publish Journey</button>
+                    <button type="reset" class="btn-secondary">Reset</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

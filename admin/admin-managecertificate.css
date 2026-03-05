@@ -1,0 +1,207 @@
+/* ==========================================================================
+   1. ADMIN VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0a0a;
+    --accent-blue: #6A97AC;
+    --text-gray: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 280px;
+    --transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex; /* Sidebar & Main berdampingan */
+    min-height: 100vh;
+}
+
+/* Background Grid */
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   2. SIDEBAR STYLING (Konsisten dengan halaman lain)
+   ========================================================================== */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    padding: 40px 30px;
+    position: fixed;
+    height: 100vh;
+}
+
+.admin-logo {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.admin-logo span { color: var(--accent-blue); }
+.admin-logo small { font-size: 11px; opacity: 0.5; font-weight: 400; text-transform: uppercase; }
+
+.admin-nav { display: flex; flex-direction: column; gap: 8px; }
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-gray);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--glass);
+    color: var(--accent-blue);
+}
+
+/* ==========================================================================
+   3. MAIN CONTENT & CERTIFICATE GRID
+   ========================================================================== */
+.admin-main {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 60px 5%;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.admin-header h1 { font-size: 32px; font-weight: 800; }
+.text-blue { color: var(--accent-blue); }
+
+.action-btn {
+    background: var(--accent-blue);
+    color: #000;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+/* Grid System */
+.cert-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Card Design */
+.cert-admin-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.cert-admin-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-blue);
+}
+
+.cert-admin-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+}
+
+.cert-admin-info {
+    padding: 20px;
+}
+
+.cert-admin-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.cert-admin-info span {
+    font-size: 13px;
+    color: var(--text-gray);
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Actions Inside Card */
+.cert-admin-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-edit-small, .btn-delete-small {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-edit-small {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.btn-edit-small:hover {
+    background: var(--accent-blue);
+    color: #000;
+    border-color: var(--accent-blue);
+}
+
+.btn-delete-small {
+    background: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+}
+
+.btn-delete-small:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .admin-sidebar { width: 100px; padding: 40px 15px; }
+    .admin-logo, .nav-item span, .admin-logo small { display: none; }
+    .admin-main { margin-left: 100px; width: calc(100% - 100px); }
+}
+
+@media (max-width: 768px) {
+    .header-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .cert-list-grid { grid-template-columns: 1fr; }
+}

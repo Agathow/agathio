@@ -1,0 +1,137 @@
+/* ==========================================================================
+   1. ADMIN LAYOUT VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0a0a;
+    --accent-blue: #6A97AC;
+    --text-gray: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 280px;
+    --transition-smooth: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex; /* Sidebar & Main berdampingan */
+}
+
+/* ==========================================================================
+   2. SIDEBAR NAVIGATION
+   ========================================================================== */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.admin-logo {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.admin-logo span { color: var(--accent-blue); }
+.admin-logo small { font-size: 12px; opacity: 0.5; font-weight: 400; }
+
+.admin-nav { display: flex; flex-direction: column; gap: 10px; flex-grow: 1; }
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-gray);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--glass);
+    color: var(--accent-blue);
+    padding-left: 25px;
+}
+
+.admin-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.view-site { text-decoration: none; color: var(--text-gray); font-size: 13px; }
+.logout-btn { text-decoration: none; color: #ff5e5e; font-weight: 700; font-size: 14px; }
+
+/* ==========================================================================
+   3. MAIN CONTENT AREA
+   ========================================================================== */
+.admin-main {
+    margin-left: var(--sidebar-width); /* Beri ruang untuk sidebar */
+    width: calc(100% - var(--sidebar-width));
+    padding: 60px 5%;
+}
+
+
+
+.admin-header { margin-bottom: 50px; }
+.admin-header h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+.admin-header p { color: var(--text-gray); }
+
+/* Stats Card System */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 24px;
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
+.stat-label { color: var(--text-gray); font-size: 14px; font-weight: 600; text-transform: uppercase; }
+.stat-value { font-size: 36px; font-weight: 800; margin-top: 10px; color: var(--accent-blue); }
+
+/* Quick Actions */
+.quick-actions h3 { margin-bottom: 20px; font-size: 18px; color: var(--text-gray); }
+.action-buttons { display: flex; gap: 15px; }
+
+.action-btn {
+    text-decoration: none;
+    background: var(--accent-blue);
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.action-btn:hover { filter: brightness(1.1); transform: scale(1.05); }
+
+/* ==========================================================================
+   4. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .admin-sidebar { width: 80px; padding: 30px 15px; }
+    .admin-logo, .nav-item, .admin-footer, .admin-logo small { display: none; }
+    .admin-main { margin-left: 80px; width: calc(100% - 80px); }
+    /* Disini biasanya diganti icon saja untuk mobile sidebar */
+}

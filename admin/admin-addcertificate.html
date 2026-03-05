@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Certificate | Admin Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-addcertificate.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header header-flex">
+            <div>
+                <h1>Add New <span class="text-blue">Certificate</span></h1>
+                <p>Upload pencapaian dan sertifikasi terbaru Anda.</p>
+            </div>
+            <a href="manage-certificates.php" class="back-link">← Back to List</a>
+        </header>
+
+        <section class="admin-form-container">
+            <form action="process/insert-certificate.php" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Certificate Name</label>
+                        <input type="text" name="cert_name" placeholder="Contoh: Google UX Design" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Issuing Organization</label>
+                        <input type="text" name="issuer" placeholder="Contoh: Coursera / Google" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Issue Date</label>
+                        <input type="text" name="issue_date" placeholder="Contoh: Jan 2024">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Credential Link (URL)</label>
+                        <input type="url" name="cert_link" placeholder="https://credential-link.com">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Short Description</label>
+                        <textarea name="cert_desc" rows="3" placeholder="Jelaskan singkat apa yang dipelajari..."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Upload Certificate Image</label>
+                        <div class="file-drop-area">
+                            <input type="file" name="cert_image" accept="image/*" required>
+                            <p>Click or drag certificate image here</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="action-btn">Save Certificate</button>
+                    <button type="reset" class="btn-secondary">Clear</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

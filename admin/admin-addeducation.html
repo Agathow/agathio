@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Education | Admin Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-addeducation.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">Agath<span>io</span> <small>Admin</small></div>
+        <nav class="admin-nav">
+            <a href="admin.html" class="nav-item">Dashboard</a>
+            <a href="admin-manageportfolio.html" class="nav-item">Manage Portfolio</a>
+            <a href="admin-manageexpertise.html" class="nav-item">Manage Expertise</a>
+            <a href="admin-manageeducation.html" class="nav-item active">Manage Education</a>
+            <a href="admin-managecertificate.html" class="nav-item">Manage Certificates</a>
+            <a href="admin-sitesettings.html" class="nav-item">Site Settings</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header header-flex">
+            <div>
+                <h1>Add New <span class="text-blue">Education</span></h1>
+                <p>Masukkan detail kualifikasi akademik Anda.</p>
+            </div>
+            <a href="manage-education.php" class="back-link">← Back to List</a>
+        </header>
+
+        <section class="admin-form-container">
+            <form action="process/insert-education.php" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Institution Name</label>
+                        <input type="text" name="institution" placeholder="Contoh: Universitas Indonesia" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Degree / Major</label>
+                        <input type="text" name="degree" placeholder="Contoh: Bachelor of Design" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Period (Year Start - End)</label>
+                        <input type="text" name="period" placeholder="Contoh: 2020 - 2024">
+                    </div>
+
+                    <div class="form-group">
+                        <label>GPA / Qualification (Optional)</label>
+                        <input type="text" name="qualification" placeholder="Contoh: GPA 3.8/4.0">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Educational Highlights</label>
+                        <textarea name="edu_desc" rows="4" placeholder="Sebutkan pencapaian atau fokus studi Anda..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="action-btn">Save Education</button>
+                    <button type="reset" class="btn-secondary">Reset</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

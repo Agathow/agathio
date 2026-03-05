@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Agathio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <nav>
+        <div id="logo-text">Agath<span>io</span></div>
+        <div class="menu-capsule">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="expertise.html">Expertise</a>
+        </div>
+    </nav>
+
+    <main class="portfolio-container">
+        <header class="portfolio-header">
+            <span class="tag">MY WORKS</span>
+            <h1>Showcase of my latest <br>digital <span class="text-blue">creations</span></h1>
+        </header>
+
+        <header class="portfolio-header">
+            <div class="counter-badge">
+                <span class="live-dot"></span>
+                <p class="portfolio-counter">
+                    <span id="count-number">0+</span> TOTAL PROJECTS
+                </p>
+            </div>
+        </header>
+
+        <div class="filter-wrapper">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+            <button class="filter-btn" data-filter="data-viz">Data Visualization</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+            <div class="project-card" data-category="data-viz">
+                <div class="project-img">
+                    <img src="assets/projects/Indeep.png" alt="INDEEP">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-inner">
+                        <span class="category">Data Visualization</span>
+                        <h3>INDEEP Dashboard</h3>
+                        <p>Turning complex socio-economic data into clear, interactive insights that reveal inequality patterns across Indonesia.</p>
+                    </div>
+                    <a href="project-details/indeep.html" class="view-project">View Details ↗</a>
+                </div>
+            </div>
+
+
+            <div class="project-card" data-category="uiux">
+                <div class="project-img">
+                    <img src="assets/projects/EcoFit Mobile Apps.png" alt="EcoFit">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-inner">
+                        <span class="category">UI/UX Design</span>
+                        <h3>EcoFit Mobile Apps</h3>
+                        <p>A clean financial tracking app focused on mindful spending and long-term financial well-being.</p>
+                    </div>
+                    <a href="project-details/ecofit.html" class="view-project">View Details ↗</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="uiux">
+                <div class="project-img">
+                    <img src="assets/projects/MetromInd.png" alt="MetroMind">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-inner">
+                        <span class="category">UI/UX Design</span>
+                        <h3>MetroMind Mobile Apps</h3>
+                        <p>Designing an integrated urban mobility experience to help users navigate public transport more efficiently.</p>
+                    </div>
+                    <a href="project-details/metromind.html" class="view-project">View Details ↗</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="uiux">
+                <div class="project-img">
+                    <img src="assets/projects/Sentrika Mobile Apps.png" alt="Sentrika Mobile Apps">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-inner">
+                        <span class="category">UI/UX Design</span>
+                        <h3>Sentrika Mobile Apps</h3>
+                        <p>A user-friendly health app designed to make medical services more accessible and easier to navigate.</p>
+                    </div>
+                    <a href="project-details/sentrika.html" class="view-project">View Details ↗</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="uiux">
+                <div class="project-img">
+                    <img src="assets/projects/BINUS SQUARE.png" alt="BINUS SQUARE">
+                </div>
+                <div class="project-info">
+                    <div class="project-info-inner">
+                        <span class="category">UI/UX Design</span>
+                        <h3>Binus Square Mobile Apps</h3>
+                        <p>Designing a campus living app that centralizes information, services, and student engagement in one place.</p>
+                    </div>
+                    <a href="project-details/binussquare.html" class="view-project">View Details ↗</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>© 2026 Agathio — All Rights Reserved.</p>
+                <div class="footer-credit">Handcrafted by Fidelio Bagas</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio-script.js"></script>
+</body>
+</html>
