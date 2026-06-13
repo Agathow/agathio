@@ -47,5 +47,5 @@ function animateNumber(id, start, end, duration) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    animateNumber("count-number", 0, 3, 2000); 
+    animateNumber("count-number", 0, 5, 2000); 
 });
