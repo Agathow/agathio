@@ -286,6 +286,41 @@ nav {
     margin-bottom: 8px;
 }
 
+.role-location {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: -4px;
+    margin-bottom: 8px;
+}
+
+
+.org-duration {
+    display: block;
+    margin-top: 4px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.role-duration {
+    color: #ffffff;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.role-location {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+.role-category {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 16px;
+}
+
 .timeline-desc {
     font-size: 14px;
     color: var(--text-gray);
