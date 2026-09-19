@@ -489,6 +489,20 @@ footer {
 
 @media (max-width: 768px) {
 
+        #hero-inner {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: none;
+    }
+
+    #hero-desc {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+        overflow-wrap: break-word;
+    }
+
     /* 1. Navigasi tetap aman */
 
     nav {
