@@ -38,7 +38,7 @@ body {
 
 
 /* ==========================================================================
-   2. BACK BUTTON
+   2. BACK BUTTON NAVIGATION
    ========================================================================== */
 
 .back-navigation {
@@ -81,7 +81,7 @@ body {
 
 
 /* ==========================================================================
-   3. ABOUT CONTENT
+   3. ABOUT CONTENT LAYOUT
    ========================================================================== */
 
 .about-page {
@@ -182,21 +182,31 @@ body {
 }
 
 
-/* CV BUTTON */
+/* ==========================================================================
+   5. CV BUTTON
+   ========================================================================== */
 
 .cv-button {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     padding: 12px 22px;
     margin-bottom: 0;
+
     background: var(--accent-blue);
-    color: #000;
+    color: #ffffff;
+
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
+
     border-radius: 12px;
     border: 1px solid transparent;
+
+    position: relative;
+    top: 4px;
+
     transition:
         transform 0.3s ease,
         background 0.3s ease,
@@ -210,8 +220,9 @@ body {
     transform: translateY(-3px);
 }
 
+
 /* ==========================================================================
-   5. TYPOGRAPHY
+   6. TYPOGRAPHY
    ========================================================================== */
 
 .tag {
@@ -234,22 +245,31 @@ body {
 
 
 /* ==========================================================================
-   6. PERSONAL INFORMATION
+   7. PERSONAL INFORMATION
    ========================================================================== */
 
 .personal-info-grid {
+    width: 100%;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin: 30px 0;
-    padding: 25px 0;
+
+    margin: 20px 0;
+    padding: 16px 0;
+
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(15px);
+
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
 }
 
 .info-item {
     min-width: 0;
+    background: transparent !important;
 }
 
 .info-item .label {
@@ -259,23 +279,29 @@ body {
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .info-item .value {
     font-size: 16px;
     font-weight: 600;
     color: white;
-    line-height: 1.5;
+    line-height: 1.4;
+}
+
+/* Business Intelligence & Data Analytics tetap satu baris di desktop */
+.info-item:last-child .value {
+    font-size: 15px;
+    white-space: nowrap;
 }
 
 
 /* ==========================================================================
-   7. SOCIALS
+   8. SOCIALS
    ========================================================================== */
 
 .social-wrapper {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .stack-label {
@@ -309,7 +335,7 @@ body {
 
 
 /* ==========================================================================
-   8. FOOTER
+   9. FOOTER
    ========================================================================== */
 
 footer {
@@ -331,63 +357,126 @@ footer {
 
 
 /* ==========================================================================
-   9. RESPONSIVE
+   10. TABLET
    ========================================================================== */
-
-@media (max-width: 1000px) {
-
-    .back-navigation {
-        top: 20px;
-        left: 5%;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .about-visual {
-        max-width: 360px;
-        margin: 0 auto;
-    }
-
-    .personal-info-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-}
-
 
 @media (max-width: 600px) {
 
+    .status-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .status-badge,
+    .cv-button {
+        flex-shrink: 0;
+    }
+
+    .cv-button {
+        top: 0;
+    }
+}
+
+/* ==========================================================================
+   11. MOBILE
+   ========================================================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
     .about-page {
+        width: 100%;
+        max-width: 100%;
         padding-top: 120px;
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow: hidden;
+    }
+
+    .about-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
 
     .about-visual {
-        max-width: 320px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .about-photo-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        max-height: none;
         border-radius: 30px;
+    }
+
+    .about-photo-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .status-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .status-badge,
+    .cv-button {
+        flex-shrink: 0;
+    }
+
+    .cv-button {
+        top: 0;
+    }
+
+    .about-text {
+        width: 100%;
+        max-width: 100%;
     }
 
     .bio-content p {
         font-size: 16px;
+        line-height: 1.7;
     }
 
-    .status-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
+    .personal-info-grid {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .info-item:last-child .value {
+        white-space: normal;
+        font-size: 16px;
+    }
+
+    .social-wrapper {
+        margin-top: 25px;
     }
 
     .social-links {
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
     .footer-bottom {
@@ -395,5 +484,4 @@ footer {
         gap: 10px;
         text-align: center;
     }
-
 }
