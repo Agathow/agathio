@@ -1,24 +1,150 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const timelineItems = document.querySelectorAll('.timeline-item');
+function calculateDuration(startDate, endDate = new Date()) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Aktifkan tombol
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
 
-            const category = btn.getAttribute('data-filter');
+    if (end.getDate() < start.getDate()) {
+        months--;
+    }
 
-            // Tampilkan/Sembunyikan Item
-            timelineItems.forEach(item => {
-                if (item.getAttribute('data-category') === category) {
-                    item.style.display = 'flex';
-                    item.style.animation = 'fadeIn 0.5s ease forwards';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    const duration = [];
+
+    if (years > 0) {
+        duration.push(
+            `${years} ${years === 1 ? "yr" : "yrs"}`
+        );
+    }
+
+    if (months > 0) {
+        duration.push(`${months} mos`);
+    }
+
+    if (duration.length === 0) {
+        return "Less than 1 mo";
+    }
+
+    return duration.join(" ");
+}
+
+
+/* ==========================================
+   UPDATE COMPANY + ROLE DURATIONS
+========================================== */
+
+function updateDurations() {
+
+    // Company total duration
+    document.querySelectorAll(".duration").forEach(element => {
+
+        const startDate = element.dataset.start;
+        const endDate = element.dataset.end;
+
+        if (!startDate) return;
+
+        element.textContent = calculateDuration(
+            startDate,
+            endDate || new Date()
+        );
+
     });
-});
+
+
+    // Individual role duration
+    document.querySelectorAll(".role-duration").forEach(element => {
+
+        const startDate = element.dataset.start;
+        const endDate = element.dataset.end;
+
+        if (!startDate) return;
+
+        element.textContent =
+            ` · ${calculateDuration(
+                startDate,
+                endDate || new Date()
+            )}`;
+
+    });
+}
+
+
+/* ==========================================
+   FILTER SYSTEM
+========================================== */
+
+function setupFilters() {
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+    const timelineItems =
+        document.querySelectorAll(".timeline-item");
+
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const selectedCategory =
+                button.dataset.filter;
+
+
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+
+            // Filter timeline
+            timelineItems.forEach(item => {
+
+                if (
+                    item.dataset.category ===
+                    selectedCategory
+                ) {
+
+                    item.style.display = "flex";
+
+                    item.style.animation = "none";
+
+                    void item.offsetWidth;
+
+                    item.style.animation =
+                        "fadeIn 0.6s forwards";
+
+                } else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    });
+
+}
+
+
+/* ==========================================
+   INITIALIZE
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        updateDurations();
+        setupFilters();
+
+    }
+);
