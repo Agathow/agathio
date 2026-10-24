@@ -1,0 +1,141 @@
+.textarea {
+  transition:
+    transform .2s var(--ease),
+    box-shadow .2s var(--ease),
+    border-color .2s var(--ease),
+    background-color .2s var(--ease),
+    color .2s var(--ease);
+}
+
+.textarea {
+  width: 100%;
+  background: #f8fffb;
+  border: 1px solid #cfe8dc;
+  border-radius: 11px;
+  padding: 13px 14px;
+  outline: none;
+  color: var(--text);
+}
+
+.textarea:hover {
+  border-color: #b8dacd;
+}
+
+.textarea:focus {
+  border-color: #4cb38c;
+  box-shadow: 0 0 0 3px #dcf7eb;
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.textarea {
+  min-height: 135px;
+  resize: vertical;
+}
+
+.textarea:focus-visible {
+  outline: 3px solid #b9ead5;
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+.report-submit {
+    width: 100%;
+  }
+}
+
+.report-submit { width: 100%; margin-top: 0; min-height: 48px; }
+
+.report-form-card { padding: 28px; animation: reportFormIn .4s var(--ease) both; }
+
+.report-form-card .form-group { margin-bottom: 22px; }
+
+.report-form-card label { display: block; margin-bottom: 8px; font-weight: 700; }
+
+.report-form-card .textarea { min-height: 160px; }
+
+@media (max-width: 480px) {
+.report-form-card { padding: 18px; }
+}
+
+.admin-layout .admin-top .searchbar,
+.admin-layout .admin-top > .btn {
+    display: none !important;
+}
+
+.report-form-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.report-form-header-content {
+    min-width: 0;
+}
+
+.report-form-back {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--green-800);
+    font-weight: 700;
+    text-decoration: none;
+
+    padding-top: 8px;
+}
+
+.report-form-back:hover {
+    color: var(--green-700);
+}
+
+.report-form-card {
+    width: 100%;
+}
+
+.report-form-card .form-group {
+    margin-bottom: 20px;
+}
+
+.report-form-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.report-anonymous {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 4px;
+
+    font-weight: 700 !important;
+}
+
+.report-anonymous input {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--green-700);
+}
+
+.report-submit {
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+
+    .report-form-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .report-form-back {
+        padding-top: 0;
+    }
+
+}

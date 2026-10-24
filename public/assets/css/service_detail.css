@@ -1,0 +1,95 @@
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.service-detail-header {
+  margin-bottom: 30px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.55fr .8fr;
+  gap: 18px;
+}
+
+.detail-card {
+  margin-top: 18px;
+}
+
+.detail-stat {
+  min-width: 0;
+}
+
+.detail-stat small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.detail-stat h2,
+.detail-stat h3 {
+  margin: 0;
+}
+
+.detail-stat h3 {
+  line-height: 1.4;
+}
+
+.detail-list {
+  margin: 18px 0 0;
+  padding-left: 22px;
+}
+
+.detail-list li {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.procedure-list li {
+  padding-left: 4px;
+}
+
+.detail-action-card {
+  margin-bottom: 18px;
+}
+
+.detail-action-card:last-child {
+  margin-bottom: 0;
+}
+
+.detail-action-card .btn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+@media (max-width: 1000px) {
+.detail-grid {
+grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+.three-col {
+grid-template-columns: 1fr;
+  }
+.service-detail-header .page-title {
+font-size: 32px !important;
+  }
+}
+
+.detail-grid {
+display: grid;
+grid-template-columns: minmax(0, 1.25fr) minmax(420px, 0.85fr);
+gap: 20px;
+align-items: start;
+}
+
+@media (max-width: 1180px) {
+.detail-grid {
+grid-template-columns: 1fr;
+}
+}
